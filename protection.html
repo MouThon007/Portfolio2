@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès protégé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="password-container">
+        <h2>Entrez le mot de passe pour accéder au fichier</h2>
+        <form id="passwordForm">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Accéder au fichier</button>
+        </form>
+        <p id="error-message" style="color:red; display:none;">Mot de passe incorrect.</p>
+    </div>
+
+    <script>
+        // Script pour valider le mot de passe
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var enteredPassword = document.getElementById('password').value;
+            var correctPassword = "1234"; // Change ce mot de passe selon tes besoins
+
+            if (enteredPassword === correctPassword) {
+                window.location.href = "documents/mon_fichier.pdf"; // Redirige vers le fichier PDF
+            } else {
+                document.getElementById('error-message').style.display = "block"; // Affiche un message d'erreur si le mot de passe est incorrect
+            }
+        });
+    </script>
+
+</body>
+</html>
